@@ -18,7 +18,7 @@ const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
-let dohURL = 'https://cloudflare-dns.com/dns-query';
+let dohURL = 'https://dns.google.com/dns-query';
 
 let panelVersion = '2.4.5';
 
@@ -200,7 +200,7 @@ export default {
 
                     default:
                         // return new Response('Not found', { status: 404 });
-                        url.hostname = 'www.speedtest.net';
+                        url.hostname = 'icook.hk';
                         url.protocol = 'https:';
                         request = new Request(url, request);
                         return await fetch(request);
