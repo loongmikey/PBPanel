@@ -5100,7 +5100,7 @@ async function getConfigAddresses(hostName, cleanIPs, enableIPv6) {
   const defaultIPv6 = enableIPv6 ? resolved.ipv6.map((ip) => `[${ip}]`) : [];
   return [
     hostName,
-    "icook.hk",
+    "www.speedtest.net",
     ...resolved.ipv4,
     ...defaultIPv6,
     ...cleanIPs ? cleanIPs.split(",") : []
@@ -6907,7 +6907,7 @@ async function buildXrayDNS(proxySettings, outboundAddrs, domainToStaticIPs, isW
   if (isWorkerLess) {
     const resolvedDOH = await resolveDNS("cloudflare-dns.com");
     const resolvedCloudflare = await resolveDNS("cloudflare.com");
-    const resolvedCLDomain = await resolveDNS("icook.hk.cdn.cloudflare.net");
+    const resolvedCLDomain = await resolveDNS("www.speedtest.net.cdn.cloudflare.net");
     const resolvedCFNS_1 = await resolveDNS("ben.ns.cloudflare.com");
     const resolvedCFNS_2 = await resolveDNS("lara.ns.cloudflare.com");
     dnsObject.hosts["cloudflare-dns.com"] = [
@@ -6920,7 +6920,6 @@ async function buildXrayDNS(proxySettings, outboundAddrs, domainToStaticIPs, isW
   }
   if (blockAds) {
     dnsObject.hosts["geosite:category-ads-all"] = ["127.0.0.1"];
-    dnsObject.hosts["geosite:category-ads-ir"] = ["127.0.0.1"];
   }
   if (blockPorn) {
     dnsObject.hosts["geosite:category-porn"] = ["127.0.0.1"];
