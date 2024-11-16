@@ -4091,7 +4091,7 @@ var proxyIPs = ["bpb.yousef.isegaro.com"];
 var defaultHttpPorts = ["80", "8080", "2052", "2082", "2086", "2095", "8880"];
 var defaultHttpsPorts = ["443", "8443", "2053", "2083", "2087", "2096"];
 var proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
-var dohURL = "https://cloudflare-dns.com/dns-query";
+var dohURL = "https://dns64.dns.google/dns-query";
 var hashPassword;
 var panelVersion = "2.7";
 var worker_default = {
@@ -4328,7 +4328,7 @@ var worker_default = {
               }
             });
           default:
-            url.hostname = "www.speedtest.net";
+            url.hostname = "icook.hk";
             url.protocol = "https:";
             request = new Request(url, request);
             return await fetch(request);
@@ -5100,7 +5100,7 @@ async function getConfigAddresses(hostName, cleanIPs, enableIPv6) {
   const defaultIPv6 = enableIPv6 ? resolved.ipv6.map((ip) => `[${ip}]`) : [];
   return [
     hostName,
-    "www.speedtest.net",
+    "icook.hk",
     ...resolved.ipv4,
     ...defaultIPv6,
     ...cleanIPs ? cleanIPs.split(",") : []
@@ -6907,7 +6907,7 @@ async function buildXrayDNS(proxySettings, outboundAddrs, domainToStaticIPs, isW
   if (isWorkerLess) {
     const resolvedDOH = await resolveDNS("cloudflare-dns.com");
     const resolvedCloudflare = await resolveDNS("cloudflare.com");
-    const resolvedCLDomain = await resolveDNS("www.speedtest.net.cdn.cloudflare.net");
+    const resolvedCLDomain = await resolveDNS("icook.hk.cdn.cloudflare.net");
     const resolvedCFNS_1 = await resolveDNS("ben.ns.cloudflare.com");
     const resolvedCFNS_2 = await resolveDNS("lara.ns.cloudflare.com");
     dnsObject.hosts["cloudflare-dns.com"] = [
